@@ -1,0 +1,33 @@
+title Elevator Operations
+
+participant User
+participant Elevator Button
+participant Elevator Cpmt
+participant FloorSensors
+participant Engine
+participant ECD
+participant maintenance
+participant Floor Display
+participant weightSensor
+participant doorSensor
+
+
+
+User->Elevator Button:calls Elevator
+Elevator Button->Elevator Cpmt:tells elevator what floor
+Elevator Cpmt->FloorSensors:moves till on correct floor
+FloorSensors->Elevator Cpmt:tells when it its on correct floor
+Elevator Cpmt->Engine:moves elevator to floor
+Engine->Elevator Cpmt: Stops elevator
+Elevator Cpmt->User: opens doors
+User->Elevator Cpmt: steps into elevator
+Elevator Cpmt->ECD:Presses which floor to go to
+ECD->Elevator Cpmt:tells when it its on correct floor
+Elevator Cpmt->Engine:moves elevator to floor
+Engine->Elevator Cpmt: Stops elevator
+Elevator Cpmt->User: tells user that doors are stuck
+User->ECD: Presses maintenance button
+ECD->maintenance:Informs maintenance of doors being stuck
+maintenance->Elevator Cpmt:Opens doors that are stuck
+Elevator Cpmt->User:Exits Elevator 
+

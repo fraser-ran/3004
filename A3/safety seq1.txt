@@ -1,0 +1,17 @@
+title Elevator Operations
+
+participant User
+participant Elevator Button
+participant Elevator Cpmt
+User->Elevator Button:calls Elevator
+Elevator Button->Elevator Cpmt:tells elevator what floor
+Elevator Cpmt->FloorSensors:moves till on correct floor
+FloorSensors->Elevator Cpmt:tells when it its on correct floor
+Elevator Cpmt->Engine:moves elevator to floor
+Engine->Elevator Cpmt: Stops elevator
+Elevator Cpmt->User: opens doors
+User->Elevator Cpmt: steps into elevator
+User->ECD:Presses which floor to go to
+User->ECD: Presses "Help" button
+ECD->Building_Services: Is contacted about situation
+ECD->911: (If no contact from building services) is contacted

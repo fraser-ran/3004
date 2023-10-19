@@ -1,0 +1,40 @@
+title Elevator Operations
+
+participant User
+participant Elevator Button
+participant Elevator Cpmt
+participant FloorSensors
+participant Engine
+participant ECD
+participant Floor Display
+participant weightSensor
+participant doorSensor
+
+participant maintenance
+
+User->Elevator Button:calls Elevator
+Elevator Button->Elevator Cpmt:tells elevator what floor
+Elevator Cpmt->FloorSensors:moves till on correct floor
+FloorSensors->Elevator Cpmt:tells when it its on correct floor
+Elevator Cpmt->Engine:moves elevator to floor
+Engine->Elevator Cpmt: Stops elevator
+Elevator Cpmt->User: opens doors
+User->Elevator Cpmt: steps into elevator
+
+Engine->Elevator Cpmt: Stops doors from closing due to excessive weight
+Elevator Cpmt->ECD: informs ECD
+ECD->User:Informs user of excessive weight
+
+User->User: Reduces weight in elevator
+Engine->Elevator Cpmt: says doorway is clear
+
+Elevator Cpmt->Elevator Cpmt:closesdoor
+
+
+Engine->Elevator Cpmt:moves elevator
+Elevator Cpmt->ECD:Presses which floor to go to
+
+ECD->Elevator Cpmt:tells when it its on correct floor
+Elevator Cpmt->Engine:moves elevator to floor
+Engine->Elevator Cpmt: Stops elevator
+Elevator Cpmt->User: opens doors and user leaves

@@ -1,0 +1,16 @@
+title Elevator Operations
+
+participant User
+participant Elevator Button
+participant Elevator Cpmt
+participant ChangeMe7
+User->Elevator Button:calls Elevator
+Elevator Button->Elevator Cpmt:tells elevator what floor
+Elevator Cpmt->FloorSensors:moves till on correct floor
+FloorSensors->Elevator Cpmt:tells when it its on correct floor
+Elevator Cpmt->Engine:moves elevator to floor
+Engine->Elevator Cpmt: Stops elevator
+Elevator Cpmt->User: opens doors
+User->Elevator Cpmt: steps into elevator
+User->User: Realizes that they don't need the elevator
+Elevator Cpmt->User: opens doors and user leaves
